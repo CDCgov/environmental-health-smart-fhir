@@ -1,0 +1,61 @@
+{
+  "name": "environmental-health-smart-fhir",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bulma": "^0.7.1",
+    "bulma-switch": "^2.0.0",
+    "bulma-timeline": "^3.0.0",
+    "ephtracking-viz": "^2.11.1",
+    "moment": "^2.22.2",
+    "vue": "^2.5.16",
+    "vue-spinner": "^1.0.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.5",
+    "@vue/cli-service": "^3.0.0-rc.5",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.0.1",
+    "eslint": "^5.2.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-vue": "^4.7.1",
+    "prettier": "^1.13.7",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
