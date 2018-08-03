@@ -1,7 +1,7 @@
 <template>
   <div class="column is-one-quarter">
     <div class="tile">
-      <article class="tile notification" :class="classObject">
+      <article class="tile notification" :class="classObject" @click="showAirQuality(condition)">
         <div class="content">
           <p class="title">{{condition.code.text}}</p>
           <p class="subtitle">{{condition.onsetDateTime}}</p>
@@ -19,6 +19,13 @@ export default {
       type: Object
     }
   },
+  methods: {
+    showAirQuality(condition) {
+      if (/asthma/i.test(condition.code.text)) {
+        this.$emit('set-date', condition.onsetDateTime);
+      }
+    }
+  },
   computed: {
     classObject() {
       // case insensitve regex
@@ -33,4 +40,7 @@ export default {
 </script>
 
 <style>
+.is-danger {
+  cursor: pointer;
+}
 </style>

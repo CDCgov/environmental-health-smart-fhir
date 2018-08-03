@@ -5,9 +5,9 @@
     <div v-else>
       <patient-demographics :patient="patient"></patient-demographics>
       <hr>
-      <conditions :conditions="conditions"></conditions>
+      <conditions @set-date="setDate" :conditions="conditions"></conditions>
       <hr>
-      <ozone-visualization :patient="patient"></ozone-visualization>
+      <air-quality-info :patient="patient" :selectedDate="selectedDate"></air-quality-info>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ import smartClient from './smartClient';
 
 import PatientDemographics from './components/PatientDemographics';
 import Conditions from './components/Conditions';
-import OzoneVisualization from './components/OzoneVisualization';
+import AirQualityInfo from './components/AirQualityInfo';
 import Error from './components/Error';
 
 export default {
@@ -31,16 +31,22 @@ export default {
     PatientDemographics,
     Conditions,
     PulseLoader,
-    OzoneVisualization,
+    AirQualityInfo,
     Error
   },
   data() {
     return {
       patient: null,
       conditions: null,
+      selectedDate: null,
       loading: true,
       error: null
     };
+  },
+  methods: {
+    setDate(date) {
+      this.selectedDate = date;
+    }
   },
   async mounted() {
     try {
