@@ -4,7 +4,7 @@
       <article class="tile notification" :class="classObject" @click="showAirQuality(condition)">
         <div class="content">
           <p class="title">{{condition.code.text}}</p>
-          <p class="subtitle">{{condition.onsetDateTime}}</p>
+          <p class="subtitle">{{condition.onsetDateTime | formatDate}}</p>
           <small>{{condition.clinicalStatus}}, {{condition.verificationStatus}}</small>
         </div>
       </article>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   props: {
     condition: {
@@ -24,6 +26,11 @@ export default {
       if (/asthma/i.test(condition.code.text)) {
         this.$emit('set-date', condition.onsetDateTime);
       }
+    }
+  },
+  filters: {
+    formatDate(date) {
+      return moment(date).format('YYYY-MM-DD');
     }
   },
   computed: {

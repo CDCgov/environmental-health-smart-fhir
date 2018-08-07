@@ -6,8 +6,7 @@
       <patient-demographics :patient="patient"></patient-demographics>
       <hr>
       <conditions @set-date="setDate" :conditions="conditions"></conditions>
-      <hr>
-      <air-quality-info :patient="patient" :selectedDate="selectedDate"></air-quality-info>
+      <air-quality-info :patient="patient" :encounters="encounters"></air-quality-info>
     </div>
   </div>
 </template>
@@ -38,6 +37,7 @@ export default {
     return {
       patient: null,
       conditions: null,
+      encounters: null,
       selectedDate: null,
       loading: true,
       error: null
@@ -53,6 +53,7 @@ export default {
       const smart = await smartClient();
       this.patient = await smart.patient.read();
       this.conditions = await smart.patient.api.fetchAll({ type: 'Condition' });
+      this.encounters = await smart.patient.api.fetchAll({ type: 'Encounter' });
     } catch (resp) {
       this.error = resp.error || resp;
     }

@@ -6,7 +6,8 @@ const getSmartClient = () =>
         serviceUrl: 'https://r2.smarthealthit.org',
         // patientId: 'smart-1213208'
         // patientId: 'smart-1137192'
-        patientId: 'smart-2042917'
+        // patientId: 'smart-2042917'
+        patientId: 'cfd4a167-5511-4de0-95af-4986260bc627'
       });
       resolve(smart);
     } else {
