@@ -6,14 +6,14 @@
         <li :class="{ 'is-active': view === 'daily' }" @click="toggleView"><a>Daily AQI for Encounters</a></li>
       </ul>
     </div>
-    <ozone-visualization v-if="view === 'summary'" :patient="patient"></ozone-visualization>
+    <p-m25-visualization v-if="view === 'summary'" :patient="patient"></p-m25-visualization>
     <encounters-air-quality :encounters="encounters" v-else-if="view === 'daily'" :patient="patient" ></encounters-air-quality>
   </div>
 
 </template>
 
 <script>
-import OzoneVisualization from './OzoneVisualization';
+import PM25Visualization from './PM25Visualization';
 import AirNow from './AirNow';
 import EncountersAirQuality from './EncountersAirQuality';
 
@@ -21,7 +21,7 @@ export default {
   name: 'air-quality-info',
   components: {
     AirNow,
-    OzoneVisualization,
+    PM25Visualization,
     EncountersAirQuality
   },
   props: {
