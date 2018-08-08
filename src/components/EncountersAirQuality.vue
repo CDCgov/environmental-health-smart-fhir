@@ -1,7 +1,7 @@
 <template>
   <div>
-    <encounters :encounters="encounters"></encounters>
-    <air-now :patient="patient" :selecteDate="selectedDate"></air-now>
+    <encounters :encounters="encounters" @date-selected="selectedDate=$event"></encounters>
+    <air-now v-if="selectedDate" :patient="patient" :selectedDate="selectedDate"></air-now>
   </div>
 </template>
 

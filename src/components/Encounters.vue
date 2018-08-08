@@ -1,6 +1,10 @@
 <template>
   <div class="center">
-    <v-select :options="selectOptions"></v-select>
+    <v-select
+      :options="selectOptions"
+      @input="$emit('date-selected', $event && $event.value)"
+      placeholder="Select encounter to see historic Air Quality Data">
+    </v-select>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ export default {
   },
   computed: {
     selectOptions() {
+      // format encounters for vue-select ({ label, value })
       return this.encounters.map(e => {
         const startDate =
           e.period &&
@@ -28,8 +33,9 @@ export default {
         if (!startDate) {
           return null;
         }
-        let label = startDate;
         const value = startDate;
+        // generate label:
+        let label = startDate;
         if (e.period.end && e.period.end !== e.period.start) {
           const endDate = moment(e.period.end).format('YYYY-MM-DD');
           if (endDate === startDate) {

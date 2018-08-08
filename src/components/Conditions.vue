@@ -11,7 +11,6 @@
       <div v-show="view === 'tiles'" class="columns is-multiline">
         <condition-tile
           v-for="condition in sortedConditions"
-          @set-date="$emit('set-date', $event)"
           :key="condition.id"
           :condition="condition">
         </condition-tile>        
@@ -102,6 +101,7 @@ export default {
         this.view = 'tiles';
       }
     },
+
     toggleAsthma() {
       this.onlyAsthma = !this.onlyAsthma;
     }

@@ -45,9 +45,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.is-danger {
-  cursor: pointer;
-}
-</style>
