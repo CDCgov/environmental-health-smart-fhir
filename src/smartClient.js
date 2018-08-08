@@ -7,7 +7,8 @@ const getSmartClient = () =>
         // patientId: 'smart-1213208'
         // patientId: 'smart-1137192'
         // patientId: 'smart-2042917'
-        patientId: 'cfd4a167-5511-4de0-95af-4986260bc627'
+        // patientId: 'cfd4a167-5511-4de0-95af-4986260bc627'
+        patientId: '8179ac31-0e00-4864-828c-c84f769d3758'
       });
       resolve(smart);
     } else {

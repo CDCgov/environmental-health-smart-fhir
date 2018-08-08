@@ -1,7 +1,7 @@
 <template>
 
-  <div class="container accordion">
-    <h1 class="title is-4 toggle">Conditions</h1>
+  <div class="container">
+    <h1 class="title is-4">Conditions</h1>
       <a class="button is-small button--toggle" @click="toggleView">{{toggleLabel}}</a>
       <div class="field field--asthma">
         <input id="showOnlyAsthma" type="checkbox" name="showOnlyAsthma" class="switch is-small" @click="toggleAsthma" v-model="onlyAsthma">

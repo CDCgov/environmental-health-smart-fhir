@@ -13,10 +13,10 @@
         birthdate<br />
         <strong>{{patient.birthDate}}</strong>
       </div>
-      <div v-if="homeAddress" class="column">
+      <div v-if="address" class="column">
         address<br />
-        <strong>{{homeAddress.line.join(' ')}}<br>
-        {{homeAddress.city}}, {{homeAddress.state}} {{homeAddress.postalCode}}</strong>
+        <strong>{{address.line.join(' ')}}<br>
+        {{address.city}}, {{address.state}} {{address.postalCode}}</strong>
       </div>
       <div v-if="phone" class="column">
         phone<br />
@@ -51,10 +51,15 @@ export default {
     age() {
       return moment().diff(this.patient.birthDate, 'years');
     },
-    homeAddress() {
-      return (
-        this.patient.address && this.patient.address.find(a => a.use === 'home')
-      );
+    address() {
+      const homeAddress =
+        this.patient.address &&
+        this.patient.address.find(a => a.use === 'home');
+      if (homeAddress) {
+        return homeAddress;
+      }
+      // if no home address return any address
+      return this.patient.address && this.patient.address[0];
     },
     phone() {
       if (this.patient.telecom) {
