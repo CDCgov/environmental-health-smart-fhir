@@ -1,7 +1,7 @@
 <template>
 
-  <div class="container accordion">
-    <h1 class="title is-4 toggle">Conditions</h1>
+  <div class="container">
+    <h1 class="title is-4">Conditions</h1>
       <a class="button is-small button--toggle" @click="toggleView">{{toggleLabel}}</a>
       <div class="field field--asthma">
         <input id="showOnlyAsthma" type="checkbox" name="showOnlyAsthma" class="switch is-small" @click="toggleAsthma" v-model="onlyAsthma">
@@ -11,7 +11,6 @@
       <div v-show="view === 'tiles'" class="columns is-multiline">
         <condition-tile
           v-for="condition in sortedConditions"
-          @set-date="$emit('set-date', $event)"
           :key="condition.id"
           :condition="condition">
         </condition-tile>        
@@ -102,6 +101,7 @@ export default {
         this.view = 'tiles';
       }
     },
+
     toggleAsthma() {
       this.onlyAsthma = !this.onlyAsthma;
     }
