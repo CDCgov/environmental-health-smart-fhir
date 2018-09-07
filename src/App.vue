@@ -6,7 +6,7 @@
       <patient-demographics :patient="patient"></patient-demographics>
       <hr>
       <conditions :conditions="conditions"></conditions>
-      <air-quality-info :patient="patient" :encounters="encounters"></air-quality-info>
+      <air-quality-asthma-tabs :patient="patient" :encounters="encounters"></air-quality-asthma-tabs>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import smartClient from './smartClient';
 import PatientDemographics from './components/PatientDemographics';
 import Conditions from './components/Conditions';
-import AirQualityInfo from './components/AirQualityInfo';
+import AirQualityAsthmaTabs from './components/AirQualityAsthmaTabs';
 import Error from './components/Error';
 
 export default {
@@ -29,7 +29,7 @@ export default {
     PatientDemographics,
     Conditions,
     PulseLoader,
-    AirQualityInfo,
+    AirQualityAsthmaTabs,
     Error
   },
   data() {

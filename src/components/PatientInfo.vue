@@ -72,12 +72,12 @@
 
 <script>
 export default {
-  name: 'patient-info',
-}
+  name: 'patient-info'
+};
 </script>
 
 <style>
-  div.is-danger {
-    color: #ff3860;
-  }
+div.is-danger {
+  color: #ff3860;
+}
 </style>
